@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Обобщения: затухание, нелинейные струны и внешние воздействия &mdash; Конечно-разностные схемы для ОДУ</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Конечно-разностные схемы для ОДУ" href="index.html" />
+    <link rel="next" title="Упражнения и задачи" href="exercises.html" />
+    <link rel="prev" title="Анализ конечно-разной схемы" href="analysis.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             accesskey="I">указатель</a></li>
+        <li class="right" >
+          <a href="exercises.html" title="Упражнения и задачи"
+             accesskey="N">вперёд</a> |</li>
+        <li class="right" >
+          <a href="analysis.html" title="Анализ конечно-разной схемы"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Конечно-разностные схемы для ОДУ</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Оглавление</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Обобщения: затухание, нелинейные струны и внешние воздействия</a><ul>
+<li><a class="reference internal" href="#id2">Разностная схема для линейного затухания</a></li>
+<li><a class="reference internal" href="#id3">Разностная схема для квадратичного затухания</a></li>
+<li><a class="reference internal" href="#id4">Программная реализация</a></li>
+<li><a class="reference internal" href="#id5">Верификация реализации алгоритма</a><ul>
+<li><a class="reference internal" href="#id6">Постоянное решение</a></li>
+<li><a class="reference internal" href="#id7">Линейное решение</a></li>
+<li><a class="reference internal" href="#id8">Квадратичное решение</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Предыдущий раздел</h4>
+  <p class="topless"><a href="analysis.html"
+                        title="предыдущая глава">Анализ конечно-разной схемы</a></p>
+  <h4>Следующий раздел</h4>
+  <p class="topless"><a href="exercises.html"
+                        title="следующая глава">Упражнения и задачи</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Эта страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/generalization.txt"
+            rel="nofollow">Исходный текст</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Быстрый поиск</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Искать" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Введите слова для поиска или имя модуля, класса или функции.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>Обобщения: затухание, нелинейные струны и внешние воздействия<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Рассмотрим обобщение задачи, рассмотренной в разделе
+<a class="reference internal" href="fdd.html#vibr-fdd"><span>Конечно-разностная дискретизация</span></a>, учитывающее
+возможные затухание <span class="math">\(f(u')\)</span>, нелинейную пружину (или
+сопротивление) <span class="math">\(s(u)\)</span> и некоторое внешнее воздействие
+<span class="math">\(F(t)\)</span>:</p>
+<div class="math" id="equation-vibr:general">
+<span class="eqno">(1)</span>\[m u'' + f(u') + s(u) = F(t), \quad t \in (0, T], \quad u(0) = U,
+\quad u'(0) = V.\]</div>
+<p>Здесь <span class="math">\(m, f(u'), s(u), F(t), U, V\)</span> и <span class="math">\(T\)</span> &#8212; входные
+параметры.</p>
+<p>Будем рассматривать два основных типа затуханий (силы трения):
+линейное <span class="math">\(f(u') = b u'\)</span> и квадратичное <span class="math">\(f(u') =
+bu'|u'|\)</span>. Пружинные системы часто характеризуются линейным затуханием,
+при этом сопротивление воздуха описывается квадратичным
+затуханием. Сила сжатие пружины часто линейны: <span class="math">\(s(u) = cu\)</span>,
+однако бывают и нелинейными, наиболее известный пример &#8212; силы
+тяжести, действующие на маятник, которые описываются нелинейным
+слагаемым <span class="math">\(s(u) \sim \sin(u)\)</span>.</p>
+<div class="section" id="id2">
+<h2>Разностная схема для линейного затухания<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Для приближенного решения уравнения <a href="#equation-vibr:general">(1)</a> в случае
+линейного затухания будем использовать следующую разностную схему:</p>
+<div class="math" id="equation-vibr:gen:fd">
+<span class="eqno">(2)</span>\[m y_{\bar{t}t}^n + b y_{\mathring{t}}^n + s(y^n) = F^n, \quad n =
+1, 2, \ldots, N-1, \quad y^0 = U, \quad y_{\mathring{t}}^0 =
+\frac{y^1 - y^{-1}}{2\tau} = V.\]</div>
+<p>Перепишем задачу <a href="#equation-vibr:gen:fd">(2)</a> в индексной форме:</p>
+<div class="math" id="equation-vibr:gen:fd:idx">
+<span class="eqno">(3)</span>\[m\frac{y^{n+1} - 2y^n +y^{n-1}}{\tau^2} + b\frac{y^{n+1} -
+y^{n-1}}{2\tau} + s(y^n) = F^n, \quad n = 1, 2, \ldots, N - 1, \quad
+y^0 = U, \quad \frac{y^1 - y^{-1}}{2\tau} = V.\]</div>
+<p>Решая разностное уравнение <a href="#equation-vibr:gen:fd:idx">(3)</a> относительно неизвестной
+<span class="math">\(y^{n+1}\)</span>, получим следующую рекуррентную формулу:</p>
+<div class="math" id="equation-vibr:gen:fd:yn">
+<span class="eqno">(4)</span>\[y^{n+1} = \frac{2m y^n + (0.5\tau - m)y^{n-1} + \tau^2(F^n -
+s(y^n))}{m + 0.5b\tau}, \quad n = 1, 2, \ldots, N-1.\]</div>
+<p>При <span class="math">\(n=0\)</span> с учетом второго начального условия имеем</p>
+<div class="math" id="equation-vibr:gen:fd:y1">
+<span class="eqno">(5)</span>\[y^1 = y^0 + \tau V + \frac{\tau^2}{2m} (F^0 - s(y^0) - b V).\]</div>
+</div>
+<div class="section" id="id3">
+<h2>Разностная схема для квадратичного затухания<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Пусть <span class="math">\(f(u') = b u'|u'|\)</span>. Аппроксимацию <span class="math">\(f(u')\)</span> выполним,
+основываясь на использовании геометрического среднего:</p>
+<div class="math">
+\[(w^2)^n \approx w^{n-1/2}w^{n+1/2},\]</div>
+<p>где <span class="math">\(w\)</span> &#8212; некоторая сеточная функция. Погрешность при
+использовании геометрического среднего имеет порядок
+<span class="math">\(O(\tau^2)\)</span>, такой же как и при аппроксимации второй
+производной. При <span class="math">\(w = u'\)</span> имеем</p>
+<div class="math">
+\[(u'|u'|)^n \approx u'(t_{n+1/2}) |u'(t_{n-1/2})|.\]</div>
+<p>Для аппроксимации <span class="math">\(u'\)</span> в точках <span class="math">\(t_{n\pm 1}\)</span> воспользуемся
+направленными разностями, которые имеют второй порядок аппроксимации
+относительно полуцелых точек:</p>
+<div class="math">
+\[u'(t_{n+1/2}) \approx \frac{y^{n+1} - y^{n}}{\tau} = y_t^n, \quad
+u'(t_{n-1/2}) \approx \frac{y^{n} - y^{n-1}}{\tau} = y_{\bar{t}}^n.\]</div>
+<p>Таким образом, получим разностное уравнение</p>
+<div class="math" id="equation-vibr:gen:fd:quad">
+<span class="eqno">(6)</span>\[m y_{\bar{t}t}^n + by_t^n y_{\bar{t}}^n + s(y^n) = F^n, \quad n =
+1, 2, \ldots, N - 1,\]</div>
+<p>которая является линейной относительно <span class="math">\(y^{n+1}\)</span>:</p>
+<div class="math" id="equation-vibr:gen:fd:quad:yn">
+<span class="eqno">(7)</span>\[y^{n+1} = \frac{2m y^n - m y^{n-1} + by^n |y^n - y^{n-1}| +
+\tau^2(F^n - s(y^n))}{m + b|y^{n} - y^{n-1}|}.\]</div>
+<p>При использовании аппроксимации второго начального условия из
+<a href="#equation-vibr:gen:fd">(2)</a> мы получим сложное нелинейное выражение для
+<span class="math">\(y^1\)</span>. Однако, можно построить аппроксимацию первого начального,
+линейную относительно <span class="math">\(y^1\)</span>. Для <span class="math">\(t = 0\)</span> имеем
+<span class="math">\(u'(0)|u'(0)| = b V|V|\)</span>. Используя это выражение в уравнении
+<a href="#equation-vibr:gen:fd:quad">(6)</a> и значение <span class="math">\(u(0) = U\)</span> при аппроксимации
+уравнения <a href="#equation-vibr:general">(1)</a>, записанного при <span class="math">\(t = 0\)</span>, получим</p>
+<div class="math">
+\[m y_{\bar{t}t}^1 + b V|V| + s(U) = F^0.\]</div>
+<p>Отсюда, учитывая второе начальное условие из <a href="#equation-vibr:gen:fd">(2)</a>,
+получим выражение для вычисления <span class="math">\(y^1\)</span></p>
+<div class="math" id="equation-vibr:gen:fd:quad:y1">
+<span class="eqno">(8)</span>\[y^1 = y^0 + \tau V + \frac{\tau^2}{2m} (F^0 - m V|V| - s(U)).\]</div>
+</div>
+<div class="section" id="id4">
+<h2>Программная реализация<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Алгоритмы для линейного и квадратичного затуханий, построенные в
+предыдущих разделах, аналогичны алгоритму для незатухающей
+модели. Отличие только в формулах для <span class="math">\(y^1\)</span> и <span class="math">\(y^{n+1}\)</span>.</p>
+<p>Таким образом, для приближенного решения задачи необходимо выполнить
+следующие шаги:</p>
+<ol class="arabic simple">
+<li><span class="math">\(y^0 = U\)</span>;</li>
+<li>вычисляем <span class="math">\(y^1\)</span>, используя <a href="#equation-vibr:gen:fd:y1">(5)</a> для
+линейного затухания или <a href="#equation-vibr:gen:fd:quad:y1">(8)</a> для квадратичного
+затухания;</li>
+<li>для <span class="math">\(n = 1, 2, \ldots, N-1\)</span>:<ol class="arabic">
+<li>вычисляем <span class="math">\(y^{n+1}\)</span>, используя <a href="#equation-vibr:gen:fd:yn">(4)</a> для линейного затухания или <a href="#equation-vibr:gen:fd:quad:yn">(7)</a> для квадратичного затухания.</li>
+</ol>
+</li>
+</ol>
+<p>Соответствующая функция <code class="docutils literal"><span class="pre">solver</span></code> представлена ниже:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">solver</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">damping</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Решает задачу m*u&#39;&#39; + f(u&#39;) + s(u) = F(t) for t in (0,T],</span>
+<span class="sd">    u(0)=U и u&#39;(0)=V,</span>
+<span class="sd">    конечно-разностной схемой с шагом tau.</span>
+<span class="sd">    Если затухание &#39;линейно&#39;, то f(u&#39;)=b*u, если затухание &#39;квадратичное&#39;, </span>
+<span class="sd">    то f(u&#39;)=b*u&#39;*abs(u&#39;).</span>
+<span class="sd">    F(t) и s(u) --- функции Python.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tau</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">);</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># avoid integer div.</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">tau</span><span class="p">))</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">*</span><span class="n">tau</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span>
+    <span class="k">if</span> <span class="n">damping</span> <span class="o">==</span> <span class="s1">&#39;linear&#39;</span><span class="p">:</span>
+        <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">tau</span><span class="o">*</span><span class="n">V</span> <span class="o">+</span> <span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">V</span> <span class="o">-</span> <span class="n">s</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">F</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">elif</span> <span class="n">damping</span> <span class="o">==</span> <span class="s1">&#39;quadratic&#39;</span><span class="p">:</span>
+        <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">tau</span><span class="o">*</span><span class="n">V</span> <span class="o">+</span> \
+               <span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">V</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">F</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">damping</span> <span class="o">==</span> <span class="s1">&#39;linear&#39;</span><span class="p">:</span>
+            <span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">tau</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+                      <span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="o">-</span> <span class="n">s</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">])))</span><span class="o">/</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">tau</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">damping</span> <span class="o">==</span> <span class="s1">&#39;quadratic&#39;</span><span class="p">:</span>
+            <span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">m</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                      <span class="o">+</span> <span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="o">-</span> <span class="n">s</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">])))</span><span class="o">/</span>\
+                      <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">t</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Верификация реализации алгоритма<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="id6">
+<h3>Постоянное решение<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Для отладки и начальной верификации часто полезно использовать
+постоянное решение. Выбор <span class="math">\(u_e(t) = U\)</span> дает
+<span class="math">\(V=0\)</span>. Подставляя в уравнение, получим <span class="math">\(F(t) = s(U)\)</span> при
+любом выборе функции <span class="math">\(f\)</span>. Так как разностная производная от
+константы равна нулю, то постоянное решение удовлетворяет также
+разностному уравнению. Следовательно, константа должна
+воспроизводиться с машинной точностью. Этот тест реализован в функции</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">test_constant</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Тестирование постоянного решения.&quot;&quot;&quot;</span>
+    <span class="n">u_exact</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">U</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">;</span> <span class="n">V</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.9</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="mf">1.5</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">u</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">u_exact</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="mf">0.2</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">solver</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u_exact</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">tol</span> <span class="o">=</span> <span class="mf">1E-13</span>
+    <span class="k">assert</span> <span class="n">difference</span> <span class="o">&lt;</span> <span class="n">tol</span>
+
+    <span class="n">u</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">solver</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;quadratic&#39;</span><span class="p">)</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u_exact</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">difference</span> <span class="o">&lt;</span> <span class="n">tol</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Линейное решение<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Теперь в качестве тестового решения выберем линейную функцию:
+<span class="math">\(u_e(t) = ct + d\)</span>. Начальное условие <span class="math">\(u(0) = U\)</span> дает
+<span class="math">\(d = U\)</span>, а из второго начального условия <span class="math">\(u'(0) = V\)</span>
+получим, что <span class="math">\(c = V\)</span>. Подставляя <span class="math">\(u_e(t) = Vt + U\)</span> в
+уравнение с линейным затуханием, имеем</p>
+<div class="math">
+\[0 + bV + s(Vt + U) = F(t),\]</div>
+<p>а для квадратичного затухания:</p>
+<div class="math">
+\[0 + bV|V| + s(Vt + U) = F(t).\]</div>
+<p>Так как все разностные аппроксимации используемые для <span class="math">\(u'\)</span> точны
+для линейных функций, то линейная функция <span class="math">\(u_e\)</span> также является
+решением разностной задачи.</p>
+</div>
+<div class="section" id="id8">
+<h3>Квадратичное решение<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Функция <span class="math">\(u_e(t) = bt^2 + Vt + U\)</span> с произвольной постоянной
+<span class="math">\(b\)</span> удовлетворяет начальным данным и уравнению с соответствующим
+выбором <span class="math">\(F(t)\)</span>. Такая функция является также решением
+разностного уравнения с линейным затуханием. Однако, полином второй
+степени от <span class="math">\(t\)</span> не удовлетворяет разностному уравнению в случае
+квадратичного затухания.</p>
+<p>Выполните <a class="reference internal" href="exercises.html#exercise-vibr-lin-quad"><span>упражнение 3</span></a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             >указатель</a></li>
+        <li class="right" >
+          <a href="exercises.html" title="Упражнения и задачи"
+             >вперёд</a> |</li>
+        <li class="right" >
+          <a href="analysis.html" title="Анализ конечно-разной схемы"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Конечно-разностные схемы для ОДУ</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Создано с помощью <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.4.
+    </div>
+  </body>
+</html>

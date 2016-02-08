@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Конечно-разностные схемы для обыкновенных дифференциальных уравнений &mdash; Конечно-разностные схемы для ОДУ</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Конечно-разностные схемы для ОДУ" href="#" />
+    <link rel="next" title="Конечно-разностная дискретизация" href="fdd.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             accesskey="I">указатель</a></li>
+        <li class="right" >
+          <a href="fdd.html" title="Конечно-разностная дискретизация"
+             accesskey="N">вперёд</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Конечно-разностные схемы для ОДУ</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Оглавление</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Конечно-разностные схемы для обыкновенных дифференциальных уравнений</a><ul>
+<li><a class="reference internal" href="#id2">Алфавитный указатель</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Следующий раздел</h4>
+  <p class="topless"><a href="fdd.html"
+                        title="следующая глава">Конечно-разностная дискретизация</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Эта страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Исходный текст</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Быстрый поиск</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Искать" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Введите слова для поиска или имя модуля, класса или функции.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="contents">
+<span id="id1"></span><h1>Конечно-разностные схемы для обыкновенных дифференциальных уравнений<a class="headerlink" href="#contents" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Содержание:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fdd.html">Конечно-разностная дискретизация</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fdd.html#id2">Базовая модель колебательного процесса</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fdd.html#id3">Разностная схема</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fdd.html#id4">Вычислительный алгоритм</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fdd.html#id5">Безындексные обозначения</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementation.html">Программная реализация</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementation.html#id2">Функция-решатель (Солвер)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation.html#id4">Верификация реализации алгоритма</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simulations.html">Проведение вычислительного эксперимента</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simulations.html#id2">Использование изменяющихся графиков</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulations.html#id3">Создание анимации</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulations.html#bokeh">Использование Bokeh для сравнения графиков</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulations.html#id5">Практический анализ решения</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Анализ конечно-разной схемы</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#id2">Вывод решения конечно-разностной схемы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#id3">Точное дискретное решение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#id4">Сходимость</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#id5">Глобальная погрешность</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#id6">Устойчивость</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#id7">О точности при границе устойчивости</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generalization.html">Обобщения: затухание, нелинейные струны и внешние воздействия</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generalization.html#id2">Разностная схема для линейного затухания</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalization.html#id3">Разностная схема для квадратичного затухания</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalization.html#id4">Программная реализация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalization.html#id5">Верификация реализации алгоритма</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">Упражнения и задачи</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#exercises">Упражнения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#problems">Задачи</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Алфавитный указатель<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Алфавитный указатель</span></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             >указатель</a></li>
+        <li class="right" >
+          <a href="fdd.html" title="Конечно-разностная дискретизация"
+             >вперёд</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Конечно-разностные схемы для ОДУ</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Создано с помощью <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.4.
+    </div>
+  </body>
+</html>

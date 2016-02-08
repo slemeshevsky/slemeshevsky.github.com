@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Конечно-разностная дискретизация &mdash; Конечно-разностные схемы для ОДУ</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Конечно-разностные схемы для ОДУ" href="index.html" />
+    <link rel="next" title="Программная реализация" href="implementation.html" />
+    <link rel="prev" title="Конечно-разностные схемы для обыкновенных дифференциальных уравнений" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             accesskey="I">указатель</a></li>
+        <li class="right" >
+          <a href="implementation.html" title="Программная реализация"
+             accesskey="N">вперёд</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Конечно-разностные схемы для обыкновенных дифференциальных уравнений"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Конечно-разностные схемы для ОДУ</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Оглавление</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Конечно-разностная дискретизация</a><ul>
+<li><a class="reference internal" href="#id2">Базовая модель колебательного процесса</a></li>
+<li><a class="reference internal" href="#id3">Разностная схема</a></li>
+<li><a class="reference internal" href="#id4">Вычислительный алгоритм</a></li>
+<li><a class="reference internal" href="#id5">Безындексные обозначения</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Предыдущий раздел</h4>
+  <p class="topless"><a href="index.html"
+                        title="предыдущая глава">Конечно-разностные схемы для обыкновенных дифференциальных уравнений</a></p>
+  <h4>Следующий раздел</h4>
+  <p class="topless"><a href="implementation.html"
+                        title="следующая глава">Программная реализация</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Эта страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/fdd.txt"
+            rel="nofollow">Исходный текст</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Быстрый поиск</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Искать" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Введите слова для поиска или имя модуля, класса или функции.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Колебательные процессы описываются дифференциальными уравнениями,
+решения которых представляют собой изменяющуюся со временем
+синусоиду. Такие решения предъявляют некоторые дополнительные (по
+сравнению с монотонными и очень гладкими решениями) требования к
+вычислительному алгоритму. Как частота, так и амплитуда колебаний
+должны достаточно точно воспроизводится численным методом
+решения. Большинство представленных в данном разделе подходов могут
+использоваться для построения численных методов решения уравнений в
+частных производных с решениями колебательного типа в многомерном
+случае.</p>
+<div class="section" id="vibr-fdd">
+<span id="id1"></span><h1>Конечно-разностная дискретизация<a class="headerlink" href="#vibr-fdd" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Многие вычислительные проблемы, возникающие при вычислении
+осциллирующих решений обыкновенных дифференциальных уравнений и
+уравнений в частных производных могут быть проиллюстрированы на
+простейшем ОДУ второго порядка <span class="math">\(u'' + u = 0\)</span>.</p>
+<div class="section" id="id2">
+<h2>Базовая модель колебательного процесса<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Колебательная система без затуханий и внешних сил может быть описана
+начальной задачей для ОДУ второго порядка</p>
+<div class="math" id="equation-vibr">
+<span id="index-0"></span><span class="eqno">(1)</span>\[u'' + \omega^2 u = 0, \quad t \in (0, T],\]</div>
+<div class="math" id="equation-vibr:init">
+<span class="eqno">(2)</span>\[u(0) = U,\quad  u'(0) = 0.\]</div>
+<p>Здесь <span class="math">\(\omega\)</span> и <span class="math">\(U\)</span> &#8212; заданные постоянные. Точное
+решение задачи <a href="#equation-vibr">(1)</a> &#8211; <a href="#equation-vibr:init">(2)</a> имеет вид</p>
+<div class="math" id="equation-vibr:sol">
+<span class="eqno">(3)</span>\[u(t) = U\cos{\omega t},\]</div>
+<p>т.е. <span class="math">\(u\)</span> описывает колебания с постоянной амплитудой <span class="math">\(U\)</span> и
+угловой частотой <span class="math">\(\omega\)</span>. Соответствующий период колебаний равен
+<span class="math">\(P = 2\pi/\omega\)</span>. Число периодов в секунду &#8212; это
+<span class="math">\(f = \omega/2\pi\)</span>. Оно измеряется в герцах (Гц). Как <span class="math">\(f\)</span>,
+так и <span class="math">\(\omega\)</span> описываются частоту колебаний, но <span class="math">\(\omega\)</span>
+более точно называется <em>угловой частотой</em> и измеряется в радиан/с.</p>
+<p>В колебательных механических системах, описываемых задачей <a href="#equation-vibr">(1)</a>
+&#8211; <a href="#equation-vibr:init">(2)</a>  <span class="math">\(u\)</span> часто представляет собой координату или
+смещение точки в системе. Производная <span class="math">\(u'(t)\)</span>, таким образом,
+интерпретируется как скорость, а <span class="math">\(u''(t)\)</span> &#8212; ускорение.
+Задача <a href="#equation-vibr">(1)</a> &#8211; <a href="#equation-vibr:init">(2)</a> описывает не только механические
+колебания, но и колебания в электрических цепях.</p>
+</div>
+<div class="section" id="id3">
+<h2>Разностная схема<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<p>При численном решении задачи <a href="#equation-vibr">(1)</a> &#8211; <a href="#equation-vibr:init">(2)</a> будем
+использовать равномерную сетку по переменной <span class="math">\(t\)</span> с шагом
+<span class="math">\(\tau\)</span>:</p>
+<div class="math">
+\[\omega_\tau = \{ t_n = n\tau, \ n = 0, 1, \ldots N \}.\]</div>
+<p>Приближенное решение задачи <a href="#equation-vibr">(1)</a> &#8211; <a href="#equation-vibr:init">(2)</a> в точке
+<span class="math">\(t_n\)</span> обозначим <span class="math">\(y^n\)</span>.</p>
+<p>Простейшая разностная схема для приближенного решения задачи
+<a href="#equation-vibr">(1)</a> &#8211; <a href="#equation-vibr:init">(2)</a> есть</p>
+<div class="math" id="equation-vibr:efds">
+<span id="index-1"></span><span class="eqno">(4)</span>\[\frac{y^{n+1} - 2 y^{n} + y^{n-1}}{\tau^2} = -\omega^2 y^n.\]</div>
+<p>Кроме того необходимо аппроксимировать производную во втором начальном
+условии. Будем аппроксимировать ее центральную разностную производную:</p>
+<div class="math" id="equation-vibr:efds:init">
+<span class="eqno">(5)</span>\[\frac{y^1 - y^{-1}}{2\tau} = 0.\]</div>
+<p>Для формулировки вычислительного алгоритма, предположим, что мы уже
+знаем значение <span class="math">\(y^{n-1}\)</span> и <span class="math">\(y^{n}\)</span>. Тогда из
+<a href="#equation-vibr:efds">(4)</a> мы можем выразить неизвестное значение
+<span class="math">\(y^{n+1}\)</span>:</p>
+<div class="math" id="equation-vibr:efds:rec">
+<span class="eqno">(6)</span>\[y^{n+1} = 2y^n - y^{n-1} - \tau^2 \omega^2 y^n.\]</div>
+<p>Вычислительный алгоритм заключается в последовательном применении
+для <span class="math">\(n = 1, 2, \ldots\)</span>.</p>
+<p>Очевидно, что <a href="#equation-vibr:efds:rec">(6)</a> нельзя использовать при <span class="math">\(n =
+0\)</span>, так как для вычисления <span class="math">\(y^1\)</span> необходимо знать неопределенное
+значение <span class="math">\(y^{-1}\)</span> при <span class="math">\(t = -\tau\)</span>. Однако, из <a href="#equation-vibr:efds:init">(5)</a>
+имеем <span class="math">\(y^{-1} = y^{1}\)</span>. Подставляя последнее в
+<a href="#equation-vibr:efds:rec">(6)</a> при <span class="math">\(n=0\)</span>, получим</p>
+<div class="math">
+\[y^1 = 2 y^0 - y^1 - \tau^2 \omega^2 y^0,\]</div>
+<p>откуда</p>
+<div class="math" id="equation-vibr:efds:init:1">
+<span class="eqno">(7)</span>\[y^1 = y^0 - \frac{1}{2} \tau^2\omega^2 y^0.\]</div>
+<p>В <a class="reference internal" href="exercises.html#exercise-vibr-init-alt"><span>упражнении 1</span></a> требуется использовать
+альтернативный способ вывода <a href="#equation-vibr:efds:init:1">(7)</a>, а также построить
+аппроксимацию начального условия <span class="math">\(u'(0) = V \ne 0\)</span>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Вычислительный алгоритм<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Для решения задачи <a href="#equation-vibr">(1)</a> &#8211; <a href="#equation-vibr:init">(2)</a> следует выполнить
+следующие шаги:</p>
+<ol class="arabic simple">
+<li><span class="math">\(y^0 = U\)</span></li>
+<li>вычисляем <span class="math">\(y^1\)</span>, используя <a href="#equation-vibr:efds:init:1">(7)</a></li>
+<li>для <span class="math">\(n = 1, 2, \ldots,\)</span><ol class="arabic">
+<li>вычисляем <span class="math">\(y^n\)</span>, используя <a href="#equation-vibr:efds:rec">(6)</a></li>
+</ol>
+</li>
+</ol>
+<p>Более строго вычислительный алгоритм напишем на Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># сетка по времени</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="c1"># постоянный временной шаг</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># решение</span>
+
+<span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span>
+<span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tau</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Безындексные обозначения<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<span class="target" id="index-2"></span><p id="index-3">Разностную схему можно записать, используя безындексные
+обозначения. Для <em>левой</em> и <em>правой разностных производных</em> соответственно
+имеем</p>
+<div class="math">
+\[y_{\bar{t}} \equiv \frac{y^{n} - y^{n-1}}{\tau}, \quad
+y_{t} \equiv \frac{y^{n+1} - y^{n}}{\tau}.\]</div>
+<p id="index-4">Для <em>второй разностной производной</em> получим</p>
+<div class="math">
+\[y_{\bar{t}t} = \frac{y_t - y_\bar{t}}{\tau} = \frac{y^{n+1} - 2y^{n} + y^{n-1}}{\tau^2}.\]</div>
+<p id="index-5">Для аппроксимации второго начального условия использовалась
+<em>центральная разностная производная</em>:</p>
+<div class="math">
+\[y_{\mathring{t}} = \frac{y^{n+1} - y^{n-1}}{2\tau}\]</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             >указатель</a></li>
+        <li class="right" >
+          <a href="implementation.html" title="Программная реализация"
+             >вперёд</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Конечно-разностные схемы для обыкновенных дифференциальных уравнений"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Конечно-разностные схемы для ОДУ</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Создано с помощью <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.4.
+    </div>
+  </body>
+</html>
