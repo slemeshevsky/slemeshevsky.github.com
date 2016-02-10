@@ -1,0 +1,18 @@
+.. S.Lemeshevsky Github pulic site documentation master file, created by
+   sphinx-quickstart on Wed Feb 10 21:37:09 2016.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Материалы к спецкурсу: Численное решение уравнений в частных производных с помощью Python
+=========================================================================================
+
+Конечно-разностные схемы для обыкновенных дифференциальных уравнений
+--------------------------------------------------------------------
+
+`HTML
+<http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/html/index.html>`_
+
+Конечно-разностные схемы для волнового уравнения
+------------------------------------------------
+
+
