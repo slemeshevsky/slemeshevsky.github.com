@@ -11,6 +11,9 @@
 
 `HTML
 <http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/html/index.html>`_
+| 
+`PDF
+<http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/latex/FDMforODE.pdf>`_ 
 
 Конечно-разностные схемы для волнового уравнения
 ------------------------------------------------
