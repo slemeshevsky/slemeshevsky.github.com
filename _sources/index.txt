@@ -20,14 +20,16 @@
 Конечно-разностные схемы для обыкновенных дифференциальных уравнений
 --------------------------------------------------------------------
 
-`HTML
-<http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/html/index.html>`_
-| 
-`PDF
-<http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/latex/FDMforODE.pdf>`_ 
+.. raw:: html
+
+   <a href="http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/html/index.html" class="btn btn-primary btn-xs">HTML</a>
+   <a
+   href="http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/latex/FDMforODE.pdf"
+   class="btn btn-primary btn-xs">PDF</a>
 
 Конечно-разностные схемы для волнового уравнения
 ------------------------------------------------
 
-`HTML
-<http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-wave/build/html/index.html>`_ 
+.. raw:: html
+
+   <a href="http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-wave/build/html/index.html" class="btn btn-primary btn-xs">HTML</a>
