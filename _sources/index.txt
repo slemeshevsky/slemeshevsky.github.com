@@ -29,4 +29,5 @@
 Конечно-разностные схемы для волнового уравнения
 ------------------------------------------------
 
-
+`HTML
+<http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-wave/build/html/index.html>`_ 
