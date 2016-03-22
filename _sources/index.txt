@@ -8,30 +8,16 @@
 		 <div class="jumbotron">
 		 <center>
 		 <h1>
-		   Численное решение уравнений в частных производных с помощью Python
+		   Материалы для студентов
 		 </h1>
 		 <h2>С. В. Лемешевский</h2>
 		 </center>
 		 </div>
 
-		 <div class="panel panel-warning">
-		 <div class="panel-heading">
-		 <h3 class="panel-title">Предупреждение</h3>
-		 </div>
-		 <div class="panel-body">
-		 Ниже даны ссылки на материалы, которые рассматриваются на лекциях. Для
-		 каждого раздела есть HTML и PDF версии. Все материалы созданы с
-		 помощью системы <a href="http://www.sphinx-doc.org">Sphinx</a>. PDF файлы
-		 генерируются с использованием LaTeX, а в HTML для отображения формул
-		 используется <a href=https://www.mathjax.org>MathJax</a>. В связи с этим возможны некоторые проблемы
-		 при отображении формул, а также возможны ошибки в тексте, поэтому
-		 сообщайте мне об этом, пожалуйста.
-		 </div>
-		 </div>
 
-
-Содержание спецкурса
-====================
+Спецкурс: Численное решение уравнений в частных производных с помощью Python
+============================================================================
+*ФПМИ БГУ --- 3 курс --- кафедра математического моделирования и управления*
 
 Курс посвящен использованию языка Python при реализации численных
 методов. Рассматриваются вопросы численного решения задач для
@@ -39,51 +25,14 @@
 производных. При программной реализации численных алгоритмов
 используются сециализированные математические пакеты.
 
-.. topic:: Выполнение упражнений и задач
-   
-   В конце каждого раздела даны упражнения и задачи. Для их выполнения
-   студенту необходимо зарегистрироваться на Github, создать репозитарий,
-   в котором каждому разделу должна соответствовать директория, внутри
-   которой располагаются упражнения и задачи (каждая в своей директории)
-   из соответствующего раздела.
-
-   **Примерная структура репозитария**
-   
-   .. code-block:: text
-	  				   
-	  repo
-	  |- fdmforode
-	     |- ex-1
-	     |- ex-2
-	     |- ex-3
-	        .
-	        .
-	     |- pr-1
-	  .
-	  .
-
-Конечно-разностные схемы для обыкновенных дифференциальных уравнений
---------------------------------------------------------------------
-
-.. raw:: html
-
-   <p>
-   <a href="http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/html/index.html" class="btn btn-primary btn-xs">HTML</a>
-   <a
-   href="http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-ode/build/latex/FDMforODE.pdf"
-   class="btn btn-primary btn-xs">PDF</a>
-   </p>
-   
-Конечно-разностные схемы для волнового уравнения
-------------------------------------------------
-
 .. raw:: html
 
    <p>
    <a
-   href="http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-wave/build/html/index.html"
-   class="btn btn-primary btn-xs">HTML</a>
-   <a href="http://slemeshevsky.github.io/python-num-pde/term2/fdm-for-wave/build/latex/FDMforWave.pdf" class="btn btn-primary btn-xs">PDF</a>
+   href="http://slemeshevsky.github.io/python-num-pde/term2/build/html/index.html"
+   class="btn btn-primary btn-xs" target="_blank">HTML</a>
+   <a
+   href="http://slemeshevsky.github.io/python-num-pde/term2/build/latex/FDMforPDE.pdf"
+   class="btn btn-primary btn-xs" target="_blank">PDF</a>
    </p>
-   
    
