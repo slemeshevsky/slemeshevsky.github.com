@@ -64,3 +64,14 @@ II семестр: Численное решение уравнений в ча�
    class="btn btn-primary btn-xs" target="_blank">PDF</a>
    </p>
    
+
+Git Book 
+~~~~~~~~
+
+.. raw:: html
+
+		 <p>
+		 <a
+   href="https://git-scm.com/book/ru/v2"
+   class="btn btn-primary btn-xs" target="_blank">Русский перевод</a>
+		 </p>
