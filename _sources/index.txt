@@ -1,79 +1,55 @@
-.. S.Lemeshevsky Github pulic site documentation master file, created by
-   sphinx-quickstart on Wed Feb 10 21:37:09 2016.
+.. Практическое применение численных методов на языке Python index file, created by `ablog start` on Thu Oct  6 18:17:36 2016.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-===========================================================
 Практическое применение численных методов на языке Python
-===========================================================
+=========================================================
 
-.. raw:: html
+С. В. Лемешевский
++++++++++++++++++
 
-		 <div class="jumbotron">
-		 <h2>С. В. Лемешевский</h2>
-		 <h3>Спецкурс</h3> 
-		 </div>
-
-
-
-*ФПМИ БГУ --- 3 курс --- кафедра математического моделирования и
-управления*
-
-Курс посвящен использованию языка Python при реализации численных
-методов. Рассматриваются вопросы численного решения задач для
-обыкновенных дифференциальных уравнений, а также уравнений в частных
-производных. При программной реализации численных алгоритмов
-используются сециализированные математические пакеты.
-
-.. warning::
-   Ниже даны ссылки на материалы, которые рассматриваются на
-   лекциях. Даны также ссылки на PDF версию. Все материалы созданы с
-   помощью системы `Sphinx <http://www.sphinx-doc.org>`_. PDF файл
-   генерируется с использованием LaTeX, а в HTML для отображения формул
-   используется `MathJax <https://www.mathjax.org>`_. В связи с этим
-   возможны некоторые проблемы при отображении формул, а также
-   возможны ошибки в тексте, поэтому сообщайте мне об этом, пожалуйста.
+Здесь будет представлена информация, касающаяся спецкурса, читаемого
+на 3 курсе кафедры математического моделирования и управления
+`факультета прикладной математики и информатики
+<http://www.fpmi.bsu.by>`_  `Белорусского государственного
+университета <http://bsu.by>`_.
 
 
-Материалы для подготовки
-~~~~~~~~~~~~~~~~~~~~~~~~
+.. sidebar:: Следите за обновлениями
 
-I семестр: Основные понятия. Численные методы линейной алгебры и анализа
-------------------------------------------------------------------------
+   Материалы будут добавляться и обновляться в
+   категориях `Лекционные материалы
+   </blog/category/лекционные-материалы/>`_ и `Упражнения
+   </blog/category/упражнения/>`_.
 
-.. raw:: html
+Ссылки на материалы
+-------------------
 
-   <p>
-   <a
-   href="http://slemeshevsky.github.io/python-num-pde/term1/build/html/index.html"
-   class="btn btn-primary btn-xs" target="_blank">HTML</a>
-   <a
-		 href="http://slemeshevsky.github.io/python-num-pde/term1/build/latex/NumPython.pdf"
-   class="btn btn-primary btn-xs" target="_blank">PDF</a>
-   </p>
+`Конспект лекций первого семестра <http://slemeshevsky.github.io/python-num-pde/term1/build/html/index.html>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _news:
+
+Новости
+-------
+
+.. attention:: Отображаются только первые строки новостей! Переходите
+			   по гиперссылкам заголовков.  
+
+.. postlist:: 5
+   :excerpts:
 
 
-II семестр: Численное решение уравнений в частных производных с помощью Python
-------------------------------------------------------------------------------
+.. `toctree` directive, below, contains list of non-post `.rst` files.
+   This is how they appear in Navigation sidebar. Note that directive
+   also contains `:hidden:` option so that it is not included inside the page.
 
-.. raw:: html
+   Posts are excluded from this directive so that they aren't double listed
+   in the sidebar both under Navigation and Recent Posts.
 
+.. toctree::
+   :hidden:
 
-   <p>
-   <a
-   href="http://slemeshevsky.github.io/python-num-pde/term2/build/html/index.html"
-   class="btn btn-primary btn-xs" target="_blank">HTML</a>
-   <a
-   href="http://slemeshevsky.github.io/python-num-pde/term2/build/latex/FDMforPDE.pdf"
-   class="btn btn-primary btn-xs" target="_blank">PDF</a>
-   </p>
-   
+   about.rst
 
-Дополнительные материалы
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Git Book <https://git-scm.com/book/ru/v2>`_
---------------------------------------------
-
-`По поводу кириллической кодировки в Windows <https://habrahabr.ru/post/117236/>`_
-----------------------------------------------------------------------------------
+.. |lectures| replace:: u`лекционные материалы`
