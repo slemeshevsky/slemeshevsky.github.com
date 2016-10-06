@@ -27,7 +27,12 @@
     <author>
       <name></name>
     </author>
-    <content type="html">&lt;p&gt;Добавлены материалы, которые рассматривались на лекциях.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Добавлены материалы, которые рассматривались на лекциях.
+Было рассмотрено использование переменных, использование библиотечных
+функций, программы с векторизацией и построением графиков. Кроме того
+мы рассмотрели некоторые основные понятия, а также основные инструкции
+Python. Все эти материалы собраны в главах &lt;a class=&quot;reference external&quot; href=&quot;/python-num-pde/term1/build/html/_first-steps/&quot;&gt;Первые шаги&lt;/a&gt; и &lt;a class=&quot;reference external&quot; href=&quot;/python-num-pde/term1/build/html/_basic-constructions/&quot;&gt;Основные
+инструкции&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   <entry xml:base="True/blog/atom.xml">
