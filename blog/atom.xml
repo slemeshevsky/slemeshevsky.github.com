@@ -93,8 +93,8 @@ Python. Все эти материалы собраны в главах &lt;a cl
   <entry xml:base="True/blog/atom.xml">
     <title type="text">Новый формат сайта</title>
     <id>True/first-post/</id>
-    <updated>2016-10-06T00:00:00Z</updated>
-    <published>2016-10-06T00:00:00Z</published>
+    <updated>2016-06-10T00:00:00Z</updated>
+    <published>2016-06-10T00:00:00Z</published>
     <link href="True/first-post/" />
     <author>
       <name>С.В. Лемешевский</name>
