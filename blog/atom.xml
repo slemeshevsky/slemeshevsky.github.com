@@ -2,10 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Python Blog</title>
   <id>http://slemeshevsky.github.io/blog/atom.xml</id>
-  <updated>2016-10-19T17:10:00Z</updated>
+  <updated>2016-10-20T00:00:00Z</updated>
   <link href="http://slemeshevsky.github.io" />
   <link href="http://slemeshevsky.github.io/blog/atom.xml" rel="self" />
   <generator uri="http://ablog.readthedocs.org" version="0.8.3">ABlog</generator>
+  <entry xml:base="http://slemeshevsky.github.io/blog/atom.xml">
+    <title type="text">Метод Монте—Карло для численного интегрирования по областям сложной формы</title>
+    <id>http://slemeshevsky.github.io/monte-carlo/</id>
+    <updated>2016-10-20T00:00:00Z</updated>
+    <published>2016-10-20T00:00:00Z</published>
+    <link href="http://slemeshevsky.github.io/monte-carlo/" />
+    <author>
+      <name></name>
+    </author>
+    <content type="html">&lt;p&gt;В конспект лекций в главе по численному интегрированию добавлен раздел
+&lt;a class=&quot;reference external&quot; href=&quot;/python-num-pde/term1/build/html/_computing-integrals/double-triple.html#int-double-mc&quot;&gt;Метод Монте—Карло для численного интегрирования по областям сложной
+формы&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://slemeshevsky.github.io/blog/atom.xml">
     <title type="text">Обновлена глава по численному интегрированию</title>
     <id>http://slemeshevsky.github.io/new-sections/</id>
