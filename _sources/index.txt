@@ -55,4 +55,3 @@
 
    about.rst
    exercises.rst
-   
