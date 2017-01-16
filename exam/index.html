@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Численное решение систем линейных алгебраических уравнений &#8212; Спецкурс</title>
+    <title>Экзамен &#8212; Спецкурс</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -61,16 +61,191 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1>Численное решение систем линейных алгебраических уравнений<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<p>В <a class="reference external" href="/python-num-pde/term1/build/html/index.html">материалы лекций</a>
-добавлена глава <a class="reference external" href="/python-num-pde/term1/build/html/_sles/index.html">Численное решение систем линейных алгебраических
-уравнений</a></p>
-<p>В настоящий момент есть раздел посвященный методу исключений Гаусса и
-упражнения к нему.</p>
-<div class="note update admonition">
-<p class="first admonition-title">Обновленно 30.11.2016</p>
-<p class="last">Добавлены разделы по стандартным итерационным методам и по методу
-сопряженных градиентов, а также упражнения к этим разделам.</p>
+<h1>Экзамен<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Экзамен назначен на <em>21 января</em>, консультация &#8212; <em>20 января</em></p>
+<p>На экзамен каждому ниже будет дана задача для выполнения. Каждый
+выполняет задачу и на экзамене рассказывает мне все, что касается
+выполнения. Можно подготовить презентацию. Экзамен будем проводить и в
+пятницу и в субботу. Если есть какие-то вопросы оставляйте их в
+комментариях к этому посту.</p>
+<p>Итоговая оценка по спецкурсу будет выставляться по формуле
+<em>0.3 ТКЗ + 0.7 ЭКЗ</em>. Ниже представлены оценки текущего контроля знаний
+(у кого ниже 4, в ведомость пойдет <em>четверка</em>).</p>
+<div class="section" id="id2">
+<h2>Текущий контроль знаний<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="73%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"></th>
+<th class="head">ФИО</th>
+<th class="head">Оценка</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last">1</p>
+</td>
+<td><p class="first last">Авлас Артем Николаевич</p>
+</td>
+<td><p class="first last">5</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">2</p>
+</td>
+<td><p class="first last">Василевский Андрей Игоревич</p>
+</td>
+<td><p class="first last">4</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">3</p>
+</td>
+<td><p class="first last">Ершов Никита Андреевич</p>
+</td>
+<td><p class="first last">4</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">4</p>
+</td>
+<td><p class="first last">Колодко Иван Владимирович</p>
+</td>
+<td><p class="first last">2</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">5</p>
+</td>
+<td><p class="first last">Колчанов Никита Сергеевич</p>
+</td>
+<td><p class="first last">5</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">6</p>
+</td>
+<td><p class="first last">Левкович Павел Васильевич</p>
+</td>
+<td><p class="first last">6</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">7</p>
+</td>
+<td><p class="first last">Павлють Дмитрий Витальевич</p>
+</td>
+<td><p class="first last">3</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">8</p>
+</td>
+<td><p class="first last">Савенков Роман Владимирович</p>
+</td>
+<td><p class="first last">5</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">9</p>
+</td>
+<td><p class="first last">Сафари Али Голамали</p>
+</td>
+<td><p class="first last">4</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">10</p>
+</td>
+<td><p class="first last">Филиппова Юлия Алексеевна</p>
+</td>
+<td><p class="first last">3</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>Задачи на экзамен<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="58%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"></th>
+<th class="head">ФИО</th>
+<th class="head">Задание на экзамен</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last">1</p>
+</td>
+<td><p class="first last">Авлас Артем Николаевич</p>
+</td>
+<td><p class="first last">Упражнение 4.9</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">2</p>
+</td>
+<td><p class="first last">Василевский Андрей Игоревич</p>
+</td>
+<td><p class="first last">Упражнение 4.4</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">3</p>
+</td>
+<td><p class="first last">Ершов Никита Андреевич</p>
+</td>
+<td><p class="first last">Упражнение 4.1</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">4</p>
+</td>
+<td><p class="first last">Колодко Иван Владимирович</p>
+</td>
+<td><p class="first last">Упражнение 3.13</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">5</p>
+</td>
+<td><p class="first last">Колчанов Никита Сергеевич</p>
+</td>
+<td><p class="first last">Упражнение 4.8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">6</p>
+</td>
+<td><p class="first last">Левкович Павел Васильевич</p>
+</td>
+<td><p class="first last">Упражнение 3.12</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">7</p>
+</td>
+<td><p class="first last">Павлють Дмитрий Витальевич</p>
+</td>
+<td><p class="first last">Упражнение 3.9</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">8</p>
+</td>
+<td><p class="first last">Савенков Роман Владимирович</p>
+</td>
+<td><p class="first last">Упражнение 4.5</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">9</p>
+</td>
+<td><p class="first last">Сафари Али Голамали</p>
+</td>
+<td><p class="first last">Упражнение 4.3</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">10</p>
+</td>
+<td><p class="first last">Филиппова Юлия Алексеевна</p>
+</td>
+<td><p class="first last">Упражнение 2.18</p>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -83,21 +258,14 @@
   <span style="float: left;">
   
   
-  <a href="../mandatory/">
+  <a href="../curcontr/">
     <i class="fa fa-arrow-circle-left"></i>
-    Важно! Об обязательных упражнениях
+    Текущий контроль знаний
   </a>
   
   </span>
   <span>&nbsp;</span>
   <span style="float: right;">
-  
-  
-  <a href="../end-of-term/">
-    Зачет
-    <i class="fa fa-arrow-circle-right"></i>
-  </a>
-  </span>
   
 </div>
 
@@ -108,9 +276,9 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'fpmi-special-cource';
-        var disqus_identifier = '/sles/';
-        var disqus_title = 'Численное решение систем линейных алгебраических уравнений';
-        var disqus_url = 'http://slemeshevsky.github.io/sles';
+        var disqus_identifier = '/exam/';
+        var disqus_title = 'Экзамен';
+        var disqus_url = 'http://slemeshevsky.github.io/exam';
 
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -153,15 +321,12 @@
   <h2>
   
   <i class="fa fa-calendar"></i>
-    09.11.2016
+    16.01.2017
   
   </h2>
 
   <ul>
     
-  <li><i class="fa fa-pencil-square-o"></i>
-    30.11.2016</li>
-  
 
   
 
@@ -184,38 +349,7 @@
   
 
   
-  <li><i class="fa-fw fa fa-folder-open"></i>
-    
-      
-      <a href="../blog/category/лекционные-материалы/">Лекционные материалы</a>,
-      
-    
-      
-      <a href="../blog/category/упражнения/">Упражнения</a>
-      
-    </li>
-  
 
-  
-  <li><i class="fa-fw fa fa-tags"></i>
-      
-    
-      
-      <a href="../blog/tag/слау/">СЛАУ</a>,
-      
-    
-      
-      <a href="../blog/tag/lu-разложение/">LU-разложение</a>,
-      
-    
-      
-      <a href="../blog/tag/прямые-методы/">прямые методы</a>,
-      
-    
-      
-      <a href="../blog/tag/итерационные-методы/">итерационные методы</a>
-      
-    </li>
   
   
   <li>
@@ -232,7 +366,7 @@
     }());
     </script>
     <i class="fa-fw fa fa-comments"></i>
-    <a href="#disqus_thread" data-disqus-identifier="/sles/"> </a>
+    <a href="#disqus_thread" data-disqus-identifier="/exam/"> </a>
   </li>
   
   </ul>
@@ -249,11 +383,11 @@
   <ul>
     
     
-      <li><a href="../exam/">16.01 - Экзамен</a></li>
-    
       <li><a href="../curcontr/">11.01 - Текущий контроль знаний</a></li>
     
       <li><a href="../end-of-term/">30.11 - Зачет</a></li>
+    
+      <li><a href="../sles/">09.11 - Численное решение систем линейных алгебраических уравнений</a></li>
     
       <li><a href="../mandatory/">27.10 - Важно! Об обязательных упражнениях</a></li>
     
