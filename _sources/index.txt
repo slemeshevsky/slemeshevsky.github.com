@@ -31,8 +31,16 @@
    <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp<a
    href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
    лекций первого семестра</a>
-   (конспект будет дополняться и обновляться)
+
+.. raw:: html
    
+   <p>
+   <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp<a
+   href="/python-num-course"target=blank>Конспект
+   лекций второго семестра</a>
+   (конспект будет дополняться и обновляться)
+
+
 :fa:`rss` `Читать RSS </blog/atom.xml>`_
    
 .. _news:
