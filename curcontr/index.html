@@ -17,7 +17,8 @@
         VERSION:     '',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -28,7 +29,6 @@
     <link rel="author" title="Об этих документах" href="../about/" />
     <link rel="index" title="Алфавитный указатель" href="../genindex/" />
     <link rel="search" title="Поиск" href="../search/" />
-    <link rel="top" title="Спецкурс" href="../" />
   
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -65,102 +65,6 @@
 <div class="note update admonition">
 <p class="first admonition-title">Обновленно 11.01.2017</p>
 <p class="last">Обновлены оценки контроля знаний и таблица о зачете упражнений в <a class="reference internal" href="../exercises/#about-ex"><span class="std std-ref">Зачет заданий</span></a>.</p>
-</div>
-<p>Я проверил упражнения, которые мне были сданы на данный
-момент. В связи с этим обновлена таблица о зачете упражнений в
-<a class="reference internal" href="../exercises/#about-ex"><span class="std std-ref">Зачет заданий</span></a>.</p>
-<p>На основе проверенных заданий получаются такие оценки текущего
-контроля:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="73%" />
-<col width="19%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"></th>
-<th class="head">ФИО</th>
-<th class="head">Оценка</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first last">1</p>
-</td>
-<td><p class="first last">Авлас Артем Николаевич</p>
-</td>
-<td><p class="first last">5</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">2</p>
-</td>
-<td><p class="first last">Василевский Андрей Игоревич</p>
-</td>
-<td><p class="first last">4</p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">3</p>
-</td>
-<td><p class="first last">Ершов Никита Андреевич</p>
-</td>
-<td><p class="first last">4</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">4</p>
-</td>
-<td><p class="first last">Колодко Иван Владимирович</p>
-</td>
-<td><p class="first last">2</p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">5</p>
-</td>
-<td><p class="first last">Колчанов Никита Сергеевич</p>
-</td>
-<td><p class="first last">5</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">6</p>
-</td>
-<td><p class="first last">Левкович Павел Васильевич</p>
-</td>
-<td><p class="first last">6</p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">7</p>
-</td>
-<td><p class="first last">Павлють Дмитрий Витальевич</p>
-</td>
-<td><p class="first last">3</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">8</p>
-</td>
-<td><p class="first last">Савенков Роман Владимирович</p>
-</td>
-<td><p class="first last">5</p>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first last">9</p>
-</td>
-<td><p class="first last">Сафари Али Голамали</p>
-</td>
-<td><p class="first last">4</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first last">10</p>
-</td>
-<td><p class="first last">Филиппова Юлия Алексеевна</p>
-</td>
-<td><p class="first last">3</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Чтобы их поправить можно исправить замечания, которые я добавил в Ваши
-репозитарии. Также можно сделать что-то из оставшихся заданий.</p>
-<div class="note update admonition">
-<p class="first admonition-title">Обновленно 11.01.2017</p>
-<p class="last">Дедлайн &#8212; <strong>13 января 2017</strong>. В этот день я размещу задания к экзамену.</p>
 </div>
 </div>
 
@@ -283,7 +187,7 @@
     (function () {
     var s = document.createElement('script'); s.async = true;
     s.type = 'text/javascript';
-    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
     </script>
@@ -305,15 +209,15 @@
   <ul>
     
     
+      <li><a href="../oop/">28.04 - Использование классов при реализации разностной схемы для волнового уравнения</a></li>
+    
+      <li><a href="../wave-eq/">30.03 - Обновление конспекта</a></li>
+    
+      <li><a href="../new-compend/">15.03 - Конспект лекций второго семестра</a></li>
+    
       <li><a href="../exam/">16.01 - Экзамен</a></li>
     
       <li><a href="../end-of-term/">30.11 - Зачет</a></li>
-    
-      <li><a href="../sles/">09.11 - Численное решение систем линейных алгебраических уравнений</a></li>
-    
-      <li><a href="../mandatory/">27.10 - Важно! Об обязательных упражнениях</a></li>
-    
-      <li><a href="../monte-carlo/">20.10 - Метод Монте—Карло для численного интегрирования по областям сложной формы</a></li>
     
   </ul>
 
@@ -372,6 +276,11 @@
     
       
       <li class="ablog-cloud ablog-cloud-1">
+        <a href="../blog/tag/оду/">ОДУ</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-1">
         <a href="../blog/tag/слау/">СЛАУ</a></li>
       
     
@@ -395,6 +304,11 @@
         <a href="../blog/tag/прямые-методы/">прямые методы</a></li>
       
     
+      
+      <li class="ablog-cloud ablog-cloud-2">
+        <a href="../blog/tag/разностная-схема/">разностная схема</a></li>
+      
+    
   </ul>
 
   <h3><a href="../blog/category/">Категории</a></h3>
@@ -405,11 +319,11 @@
     
   
     
-    <li><a href="../blog/category/лекционные-материалы/">Лекционные материалы (6)</a></li>
+    <li><a href="../blog/category/лекционные-материалы/">Лекционные материалы (9)</a></li>
     
   
     
-    <li><a href="../blog/category/упражнения/">Упражнения (9)</a></li>
+    <li><a href="../blog/category/упражнения/">Упражнения (11)</a></li>
     
   
   </ul>
@@ -418,7 +332,7 @@
   <ul>
   
     
-    <li><a href="../blog/2017/">2017 (2)</a></li>
+    <li><a href="../blog/2017/">2017 (5)</a></li>
     
   
     
@@ -445,8 +359,8 @@
       &copy;2016, С.В. Лемешевский.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
     </div>
 
