@@ -35,7 +35,7 @@
 Новости
 -------
 
-.. postlist:: 2
+.. postlist:: 3
    :excerpts:
 
 .. `toctree` directive, below, contains list of non-post `.rst` files.
