@@ -1,35 +1,23 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Практическое применение численных методов на языке Python &#8212; Спецкурс</title>
-    
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="#" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/applications-python.png"/>
-    <link rel="author" title="Об этих документах" href="about/" />
     <link rel="index" title="Алфавитный указатель" href="genindex/" />
     <link rel="search" title="Поиск" href="search/" />
-    <link rel="next" title="О спецкурсе" href="about/" />
   
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -52,61 +40,41 @@
     ul.postlist-style-circle {list-style-type: circle;}
   </style>
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="python">
 <h1>Практическое применение численных методов на языке Python<a class="headerlink" href="#python" title="Ссылка на этот заголовок">¶</a></h1>
 <div class="section" id="id1">
 <h2>С. В. Лемешевский<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Здесь представлена информация, касающаяся спецкурса, читаемого
-на 3 курсе кафедры математического моделирования и управления
-<a class="reference external" href="http://www.fpmi.bsu.by">факультета прикладной математики и информатики</a>  <a class="reference external" href="http://bsu.by">Белорусского государственного
-университета</a>. В категориях <a class="reference external" href="/blog/category/лекционные-материалы/">Лекционные материалы</a> и <a class="reference external" href="/blog/category/упражнения/">Упражнения</a> представлены новости об
-обновлениях в лекционных материалах, а также о добавлении и выполнении
-упражнений. В категории <a class="reference external" href="/blog/category/дополнительные-материалы/">Дополнительные материалы</a>  даются ссылки на
-внешние ресурсы, которые могут помочь при работе на заданиями.</p>
+<p>Здесь представлена информация по практическим занятиям по численным
+методам для студентов 3 курса научно-педагогического отделения и 4
+курса отделения механики  <a class="reference external" href="http://mmf.bsu.by">механико-математического</a>  <a class="reference external" href="http://bsu.by">Белорусского государственного университета</a>. В категории <a class="reference external" href="/blog/category/дополнительные-материалы/">Дополнительные материалы</a>  даются ссылки на
+внешние ресурсы, которые могут помочь при работе.</p>
 </div>
 <div class="section" id="links">
-<span id="id7"></span><h2>Полезные ссылки<a class="headerlink" href="#links" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="id5"></span><h2>Полезные ссылки<a class="headerlink" href="#links" title="Ссылка на этот заголовок">¶</a></h2>
 <p>
 <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp<a
-href="/python-num-course"target=blank>Конспект
-лекций второго семестра</a>
-(конспект будет дополняться и обновляться)<p>
-<i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp<a
-href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
-лекций первого семестра</a><p><em class="fa fa-rss"></em> <a class="reference external" href="/blog/atom.xml">Читать RSS</a></p>
+href="/num-mmf"target=blank>Материалы для занятий</a><p><em class="fa fa-rss"></em> <a class="reference external" href="/blog/atom.xml">Читать RSS</a></p>
 </div>
 <div class="section" id="news">
-<span id="id8"></span><h2>Новости<a class="headerlink" href="#news" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="id6"></span><h2>Новости<a class="headerlink" href="#news" title="Ссылка на этот заголовок">¶</a></h2>
 <ul class="postlist-style-none postlist">
-<li><p class="first">03.05 - <a class="reference internal" href="multidim/">Дискретизация многомерного волнового уравнения</a></p>
-<p>В конспект лекций <a class="reference external" href="python-num-course/">текущего семестра</a> добавлен
-раздел «Разностные схемы для многомерного волнового уравнения».</p>
+<li><p class="first">17.09 - <a class="reference internal" href="mmf-1st-post/">Сайт теперь содержит материалы для студентов ММФ</a></p>
+<p>Теперь на этом сайте будут содержаться материалы для студентов 3 курса
+научно-педагогического отделения и 4 курса отделения механики ММФ БГУ.</p>
 </li>
-<li><p class="first">28.04 - <a class="reference internal" href="oop/">Использование классов при реализации разностной схемы для волнового уравнения</a></p>
-<p>В конспект лекций <a class="reference external" href="python-num-course/">текущего семестра</a> добавлен
-раздел «Создание ПО с использованием ООП».</p>
-</li>
-<li><p class="first">30.03 - <a class="reference internal" href="wave-eq/">Обновление конспекта</a></p>
-<p>Добавлены материалы по последним двум лекциям по разностным методам
-для волнового уравнения.</p>
-</li>
-<li><p class="first">15.03 - <a class="reference internal" href="new-compend/">Конспект лекций второго семестра</a></p>
-<p>Доступен <a class="reference external" href="/python-num-course">конспект лекций</a>, прошедших в этом
-семестре, который содержит упражнения и будет пополняться. На данный
-момент доступна глава о разностных методах решения ОДУ второго
-порядка.</p>
-</li>
-<li><p class="first">16.01 - <a class="reference internal" href="exam/">Экзамен</a></p>
-<p>Экзамен назначен на <em>21 января</em>, консультация &#8212; <em>20 января</em></p>
+<li><p class="first">17.09 - <a class="reference internal" href="mmf-2d-post/">Материалы по основам Python</a></p>
+<p>Добавлен раздел <a class="reference external" href="/num-mmf">Материалы для занятий</a>. В нем уже есть
+глава «Основы Python».</p>
 </li>
 </ul>
 <div class="toctree-wrapper compound">
@@ -120,6 +88,7 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
   </div>
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -133,7 +102,7 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
 
 
 
-<p class="blurb">Блог cпецкурса на 3 курсе ФПМИ БГУ</p>
+<p class="blurb">Численные методы: практика. ММФ</p>
 
 
 
@@ -144,16 +113,14 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
 
 
 
-<h3>Навигация</h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="about/">О спецкурсе</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exercises/">Зачет заданий</a></li>
-</ul>
 
-
-  <h3><a href="blog/">Недавние Записи</a></h3>
+  <h3><a href="blog/">Recent Posts</a></h3>
   <ul>
     
+    
+      <li><a href="mmf-1st-post/">17.09 - Сайт теперь содержит материалы для студентов ММФ</a></li>
+    
+      <li><a href="mmf-2d-post/">17.09 - Материалы по основам Python</a></li>
     
       <li><a href="multidim/">03.05 - Дискретизация многомерного волнового уравнения</a></li>
     
@@ -161,13 +128,9 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
     
       <li><a href="wave-eq/">30.03 - Обновление конспекта</a></li>
     
-      <li><a href="new-compend/">15.03 - Конспект лекций второго семестра</a></li>
-    
-      <li><a href="exam/">16.01 - Экзамен</a></li>
-    
   </ul>
 
-  <h3><a href="blog/tag/">Теги</a></h3>
+  <h3><a href="blog/tag/">Tags</a></h3>
   <style type="text/css">
     ul.ablog-cloud {list-style: none; overflow: auto;}
     ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
@@ -242,11 +205,6 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
     
       
       <li class="ablog-cloud ablog-cloud-1">
-        <a href="blog/tag/классы/">классы</a></li>
-      
-    
-      
-      <li class="ablog-cloud ablog-cloud-1">
         <a href="blog/tag/кодировка/">кодировка</a></li>
       
     
@@ -262,7 +220,7 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
     
   </ul>
 
-  <h3><a href="blog/category/">Категории</a></h3>
+  <h3><a href="blog/category/">Categories</a></h3>
   <ul>
   
     
@@ -274,13 +232,21 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
     
   
     
+    <li><a href="blog/category/материалы/">Материалы (1)</a></li>
+    
+  
+    
     <li><a href="blog/category/упражнения/">Упражнения (11)</a></li>
     
   
   </ul>
 
-  <h3><a href="blog/archive/">Архив</a></h3>
+  <h3><a href="blog/archive/">Archives</a></h3>
   <ul>
+  
+    
+    <li><a href="blog/2018/">2018 (2)</a></li>
+    
   
     
     <li><a href="blog/2017/">2017 (6)</a></li>
@@ -294,12 +260,14 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
 
 <div id="searchbox" style="display: none" role="search">
   <h3>Быстрый поиск</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search/" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Искать" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Искать" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -310,8 +278,8 @@ href="/python-num-pde/term1/build/html/index.html"target=blank>Конспект
       &copy;2016, С.В. Лемешевский.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
     </div>
 

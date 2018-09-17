@@ -60,6 +60,3 @@
 
 .. toctree::
    :hidden:
-
-   about.rst
-   exercises.rst

@@ -1,30 +1,20 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Об упражнениях &#8212; Спецкурс</title>
-    
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/applications-python.png"/>
     <link rel="author" title="Об этих документах" href="../about/" />
     <link rel="index" title="Алфавитный указатель" href="../genindex/" />
@@ -51,13 +41,14 @@
     ul.postlist-style-circle {list-style-type: circle;}
   </style>
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="id1">
@@ -116,6 +107,7 @@
   </div>
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -154,7 +146,7 @@
   
 
   
-  <li><i class="fa-fw fa fa-location-arrow"></i>
+  <li id="location"><span><i class="fa-fw fa fa-location-arrow"></i>
     
       
       <a href="../blog/location/минск/">Минск</a>
@@ -163,7 +155,7 @@
   
 
   
-  <li><i class="fa-fw fa fa-language"></i>
+  <li id="language"><span><i class="fa-fw fa fa-language"></i>
     
       
       <a href="../blog/language/русскии/">Русский</a>
@@ -172,7 +164,7 @@
   
 
   
-  <li><i class="fa-fw fa fa-folder-open"></i>
+  <li id="category"><span><i class="fa-fw fa fa-folder-open"></i>
     
       
       <a href="../blog/category/упражнения/">Упражнения</a>
@@ -182,7 +174,7 @@
 
   
   
-  <li>
+  <li id="comments">
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'fpmi-special-cource'; // required: replace example with your forum shortname
@@ -209,9 +201,11 @@
 </ul>
 
 
-  <h3><a href="../blog/">Недавние Записи</a></h3>
+  <h3><a href="../blog/">Recent Posts</a></h3>
   <ul>
     
+    
+      <li><a href="../multidim/">03.05 - Дискретизация многомерного волнового уравнения</a></li>
     
       <li><a href="../oop/">28.04 - Использование классов при реализации разностной схемы для волнового уравнения</a></li>
     
@@ -221,11 +215,9 @@
     
       <li><a href="../exam/">16.01 - Экзамен</a></li>
     
-      <li><a href="../curcontr/">11.01 - Текущий контроль знаний</a></li>
-    
   </ul>
 
-  <h3><a href="../blog/tag/">Теги</a></h3>
+  <h3><a href="../blog/tag/">Tags</a></h3>
   <style type="text/css">
     ul.ablog-cloud {list-style: none; overflow: auto;}
     ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
@@ -309,13 +301,13 @@
       
     
       
-      <li class="ablog-cloud ablog-cloud-2">
+      <li class="ablog-cloud ablog-cloud-3">
         <a href="../blog/tag/разностная-схема/">разностная схема</a></li>
       
     
   </ul>
 
-  <h3><a href="../blog/category/">Категории</a></h3>
+  <h3><a href="../blog/category/">Categories</a></h3>
   <ul>
   
     
@@ -323,7 +315,7 @@
     
   
     
-    <li><a href="../blog/category/лекционные-материалы/">Лекционные материалы (9)</a></li>
+    <li><a href="../blog/category/лекционные-материалы/">Лекционные материалы (10)</a></li>
     
   
     
@@ -332,11 +324,11 @@
   
   </ul>
 
-  <h3><a href="../blog/archive/">Архив</a></h3>
+  <h3><a href="../blog/archive/">Archives</a></h3>
   <ul>
   
     
-    <li><a href="../blog/2017/">2017 (5)</a></li>
+    <li><a href="../blog/2017/">2017 (6)</a></li>
     
   
     
@@ -347,12 +339,14 @@
 
 <div id="searchbox" style="display: none" role="search">
   <h3>Быстрый поиск</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search/" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Искать" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Искать" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -363,8 +357,8 @@
       &copy;2016, С.В. Лемешевский.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
     </div>
 
