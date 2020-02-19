@@ -1,0 +1,12 @@
+TITLE: Материалы для студентов
+AUTHOR: С. Лемешевский
+DATE: today
+
+Здесь представлены ссылки на материалы для студентов. Для подготовки
+материалов использовался простой язык разметки "DocOnce": "https://github.com/hplgit/doconce/".
+Документацию по DocOnce можно найти "здесь": "http://hplgit.github.io/doconce/doc/pub/manual/manual.html".
+
+* "Численные методы (3 курс, 3 группа)": "https://slemeshevsky.github.io/num-mmf/"
+* Язык программирования Python
+
+
