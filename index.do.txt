@@ -7,6 +7,6 @@ DATE: today
 Документацию по DocOnce можно найти "здесь": "http://hplgit.github.io/doconce/doc/pub/manual/manual.html".
 
 * "Численные методы (3 курс, 3 группа)": "https://slemeshevsky.github.io/num-mmf/"
-* Язык программирования Python
+* "Язык программирования Python (3 курс, 9 и 10 группы)": "https://slemeshevsky.github.io/python-course/"
 
 
